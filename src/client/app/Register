@@ -1,0 +1,57 @@
+import React from 'react';
+import {render} from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import axios from 'axios';
+
+class Register extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      first_name:'',
+      last_name:'',
+      email:'',
+      password:''
+    }
+  }
+  render () {
+    const style = {
+      margin: '15',
+    };
+
+  return (
+    <div>
+        <MuiThemeProvider>
+	<AppBar title="Login" />
+          <div style={style1}><center>
+	     <h2>Login Credintial</h2>
+             <TextField
+             hintText="Enter your Username"
+             floatingLabelText="Username"
+             onChange = {(event,newValue) => this.setState({username:newValue})}
+             />
+           <br/>
+             <TextField
+               type="password"
+               hintText="Enter your Password"
+               floatingLabelText="Password"
+               onChange = {(event,newValue) => this.setState({password:newValue})}
+               />
+             <br/>
+	     <br/>
+             <RaisedButton label="SignIn" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+	     <RaisedButton label="SignUp" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+         </center></div>
+         </MuiThemeProvider>
+
+        </div>
+    );
+  }
+}
+
+render(<App/>, document.getElementById('app'));
+
+
+
